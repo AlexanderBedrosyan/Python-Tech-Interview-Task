@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style/front_page.css">
+    <title>{{ title }}</title>
+</head>
+<body>
+
+    <div class="info-container">
+        <form action="" method="post" class="form">
+            {% csrf_token %}
+        <h1>Add New Employee</h1>
+            First Name: <input type="text" name="first_name"><br>
+            Last Name: <input type="text" name="last_name"><br>
+            Mobile: <input type="number" name="mobile"><br>
+            Start Date: <input type="date" name="start_date"><br>
+            Position: <input type="text" name="position"><br>
+            Salary: <input type="text" name="salary"><br>
+            Employee ID: <input type="text" name="employee_id"><br>
+            <input type="submit">
+        </form>
+        <ul>
+            <h1>{{ title }}:</h1>
+            {% for employee in employees %}
+                <li>{{ employee.first_name }} {{ employee.last_name }} - {{ employee.position }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</body>
+</html>
+
